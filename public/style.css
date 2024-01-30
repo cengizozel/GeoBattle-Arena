@@ -2,9 +2,38 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100vh;
     background-color: #f0f0f0;
+    margin: 0;
 }
+
+#roomCode {
+    width: 300px; /* Adjust the width as needed */
+    padding: 15px; /* Adds padding inside the textbox for bigger appearance */
+    margin-bottom: 20px; /* Adds some space below the textbox */
+    font-size: 20px; /* Makes the text inside the textbox larger */
+    text-align: center; /* Centers the text inside the textbox */
+    border: 2px solid #0095DD; /* Gives the textbox a solid border */
+    border-radius: 5px; /* Rounds the corners of the textbox */
+}
+
+#joinRoom {
+    padding: 10px 20px; /* Adds padding to make the button larger */
+    font-size: 18px; /* Increases the font size in the button */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    border-radius: 5px; /* Rounds the corners of the button */
+    border: none; /* Removes the default border */
+    background-color: #0095DD; /* Sets a background color */
+    color: white; /* Sets the text color to white */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+#joinRoom:hover {
+    background-color: #007CBA; /* Changes background color on hover for visual feedback */
+}
+
 canvas {
     border: 1px solid #000;
+    margin-top: 20px; /* Adds some space between the button and the canvas */
 }

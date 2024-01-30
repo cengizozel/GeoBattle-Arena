@@ -1,30 +1,31 @@
+const socket = io();
 const canvas = document.getElementById('gameCanvas');
-const ctx = canvas.getContext('2d');
+const joinRoomBtn = document.getElementById('joinRoom');
+const roomCodeInput = document.getElementById('roomCode');
+const roomDisplay = document.getElementById('roomDisplay');
+const roomState = document.getElementById('roomState');
+const toggleStateBtn = document.getElementById('toggleState');
 
-let x = canvas.width/2;
-let y = canvas.height - 30;
-let dx = 2;
-let dy = -2;
-
-function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.beginPath();
-    ctx.rect(x, y, 10, 10);
-    ctx.fillStyle = "#0095DD";
-    ctx.fill();
-    ctx.closePath();
-
-    if(x + dx > canvas.width-10 || x + dx < 0) {
-        dx = -dx;
+joinRoomBtn.addEventListener('click', function() {
+    const roomCode = roomCodeInput.value;
+    if(roomCode) {
+        socket.emit('joinRoom', roomCode);
+        roomDisplay.style.display = 'block'; // Show the room display
     }
-    if(y + dy > canvas.height-10 || y + dy < 0) {
-        dy = -dy;
+});
+
+socket.on('roomJoined', (code) => {
+    console.log(`Joined room ${code}`);
+    canvas.style.display = 'none'; // Optional: hide or remove canvas
+});
+
+socket.on('stateChanged', (state) => {
+    roomState.textContent = state;
+});
+
+toggleStateBtn.addEventListener('click', () => {
+    const roomCode = roomCodeInput.value;
+    if (roomCode) {
+        socket.emit('toggleState', roomCode);
     }
-
-    x += dx;
-    y += dy;
-
-    requestAnimationFrame(draw);
-}
-
-draw();
+});

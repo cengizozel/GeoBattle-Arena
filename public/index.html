@@ -7,7 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="gameCanvas" width="480" height="320"></canvas>
+    <input type="text" id="roomCode" placeholder="Enter Room Code"/>
+    <button id="joinRoom">Join Room</button>
+
+    <div id="roomDisplay" style="display:none;">
+        <h2>Room State: <span id="roomState">1</span></h2>
+        <button id="toggleState">Toggle State</button>
+    </div>
+
+    <canvas id="gameCanvas" width="480" height="320" style="display:none;"></canvas>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
