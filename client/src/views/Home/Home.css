@@ -1,0 +1,71 @@
+/* Home.css */
+@keyframes phaseColors {
+    0% {
+        background-color: #6a0dad; /* Neon Purple */
+    }
+    20% {
+        background-color: #00a86b; /* Neon Green */
+    }
+    40% {
+        background-color: #1e90ff; /* Neon Blue */
+    }
+    60% {
+        background-color: #ff4500; /* Neon Red */
+    }
+    80% {
+        background-color: #ffa500; /* Neon Orange */
+    }
+    100% {
+        background-color: #6a0dad; /* Neon Purple */
+    }
+}
+
+.home-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    animation: phaseColors 20s infinite;
+    padding-top: 50px;
+}
+
+.bg-image {
+    width: 50%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+#ui-elements {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.controls-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.controls-container button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.controls-container img {
+    width: 30px;
+    height: 30px;
+}
