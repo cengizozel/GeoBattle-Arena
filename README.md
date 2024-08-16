@@ -1,1 +1,1 @@
-# node-game
+# GeoBattle Arena
